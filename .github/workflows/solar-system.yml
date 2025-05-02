@@ -31,3 +31,26 @@
           with:
             name: Mocha-Test-Result
             path: test-results.xml
+
+    code-coverage: 
+        name: For code-coverage
+        runs-on: ubuntu-latest
+        steps: 
+          - name: chceckout repo
+            uses: actions/checkout@v4
+          - name: Setup NodeJS Version
+            uses: actions/setup-node@v4
+            with:
+              node-version: 18
+          - name: install dependencies
+            run: npm install
+          - name: run code coverage
+            run: npm run coverage
+          - name: Archive code coverage results
+            uses: actions/upload-artifact@v4
+            with:
+              name: Code-Coverage-Result
+              path: coverage
+              retention-days: 5
+          
+ 
