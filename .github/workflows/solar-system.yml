@@ -12,7 +12,7 @@
     MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
   jobs:
     unit-testing:
-      name: Unit Testing
+      name: Unit Testing Step
       runs-on: ubuntu-latest
       steps:
         - name: Checkout Repository
