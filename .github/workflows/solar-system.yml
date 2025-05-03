@@ -6,6 +6,8 @@
       branches:
         - main
         - feature/*
+  permissions: 
+      packages: write
   env:
     MONGO_URI: mongodb+srv://supercluster.d83jj.mongodb.net/superData
     MONGO_USERNAME: superuser
@@ -69,8 +71,6 @@
               path: coverage
               retention-days: 5
     docker:
-       permissions: 
-        packages: write
        needs: [unit-testing, code-coverage]
        runs-on: ubuntu-latest
        steps:
