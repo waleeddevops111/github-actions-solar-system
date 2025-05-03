@@ -6,10 +6,7 @@
       branches:
         - main
         - feature/*
-  permissions: 
-    contents: read
-    packages: write
-    id-token: write
+
   env:
     MONGO_URI: mongodb+srv://supercluster.d83jj.mongodb.net/superData
     MONGO_USERNAME: superuser
@@ -76,6 +73,8 @@
     docker:
        needs: [unit-testing, code-coverage]
        runs-on: ubuntu-latest
+       permissions: 
+        packages: write
        steps:
         - name: checkout repo
           uses: actions/checkout@v4
