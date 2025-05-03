@@ -20,13 +20,13 @@
         - name: Setup NodeJS Version
           uses: actions/setup-node@v4
           with:
-            
+
             node-version: 20 
         - name: Cache NPM Dependencies
           id: cache-npm
           uses: actions/cache@v4
           with:
-            path: node_modules
+            path: ~/.npm
             key: ${{ runner.os }}-node_modules-${{hashFiles('package-lock.json')}}
         - name: Install Dependencies
           run: npm install
